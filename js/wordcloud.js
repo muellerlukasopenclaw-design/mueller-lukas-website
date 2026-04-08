@@ -141,21 +141,21 @@ class WordCloud {
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
   const techWords = [
-    { text: 'PHP', size: 28, weight: 1.5, color: 'rgba(0, 212, 255, 0.8)' },
-    { text: 'JavaScript', size: 24, weight: 1.4, color: 'rgba(0, 212, 255, 0.75)' },
-    { text: 'Docker', size: 22, weight: 1.3, color: 'rgba(0, 212, 255, 0.7)' },
-    { text: 'DevOps', size: 26, weight: 1.6, color: 'rgba(0, 212, 255, 0.85)' },
-    { text: 'Git', size: 20, weight: 1.2, color: 'rgba(0, 212, 255, 0.6)' },
-    { text: 'Linux', size: 21, weight: 1.25, color: 'rgba(0, 212, 255, 0.65)' },
-    { text: 'CI/CD', size: 23, weight: 1.35, color: 'rgba(0, 212, 255, 0.7)' },
-    { text: 'Cloud', size: 25, weight: 1.45, color: 'rgba(0, 212, 255, 0.75)' },
-    { text: 'Kubernetes', size: 19, weight: 1.15, color: 'rgba(0, 212, 255, 0.55)' },
-    { text: 'API', size: 22, weight: 1.3, color: 'rgba(0, 212, 255, 0.7)' },
-    { text: 'SQL', size: 20, weight: 1.2, color: 'rgba(0, 212, 255, 0.6)' },
-    { text: 'AWS', size: 21, weight: 1.25, color: 'rgba(0, 212, 255, 0.65)' },
-    { text: 'Security', size: 20, weight: 1.2, color: 'rgba(0, 212, 255, 0.6)' },
-    { text: 'Agile', size: 19, weight: 1.15, color: 'rgba(0, 212, 255, 0.55)' },
-    { text: 'Leadership', size: 24, weight: 1.4, color: 'rgba(0, 212, 255, 0.8)' }
+    { text: 'PHP', size: 28, weight: 1.5, color: 'rgba(0, 212, 255, 0.9)' },
+    { text: 'JavaScript', size: 24, weight: 1.4, color: 'rgba(0, 212, 255, 0.85)' },
+    { text: 'Docker', size: 22, weight: 1.3, color: 'rgba(0, 212, 255, 0.85)' },
+    { text: 'DevOps', size: 26, weight: 1.6, color: 'rgba(0, 230, 255, 0.95)' },
+    { text: 'Git', size: 20, weight: 1.2, color: 'rgba(0, 212, 255, 0.8)' },
+    { text: 'Linux', size: 21, weight: 1.25, color: 'rgba(0, 212, 255, 0.8)' },
+    { text: 'CI/CD', size: 23, weight: 1.35, color: 'rgba(0, 212, 255, 0.85)' },
+    { text: 'Cloud', size: 25, weight: 1.45, color: 'rgba(0, 220, 255, 0.9)' },
+    { text: 'Kubernetes', size: 19, weight: 1.15, color: 'rgba(0, 212, 255, 0.75)' },
+    { text: 'API', size: 22, weight: 1.3, color: 'rgba(0, 212, 255, 0.85)' },
+    { text: 'SQL', size: 20, weight: 1.2, color: 'rgba(0, 212, 255, 0.8)' },
+    { text: 'AWS', size: 21, weight: 1.25, color: 'rgba(0, 212, 255, 0.8)' },
+    { text: 'Security', size: 20, weight: 1.2, color: 'rgba(0, 212, 255, 0.8)' },
+    { text: 'Agile', size: 19, weight: 1.15, color: 'rgba(0, 212, 255, 0.75)' },
+    { text: 'Leadership', size: 24, weight: 1.4, color: 'rgba(0, 230, 255, 0.95)' }
   ];
   
   // Initialize word cloud if canvas exists
