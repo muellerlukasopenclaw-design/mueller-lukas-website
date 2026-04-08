@@ -243,11 +243,22 @@ p {
   pointer-events: none;
 }
 
+.hero-wordcloud {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
 .hero-content {
   text-align: center;
   padding: var(--space-24) var(--space-6);
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .hero-greeting {
