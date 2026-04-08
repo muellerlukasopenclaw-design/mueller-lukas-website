@@ -358,7 +358,7 @@ p {
 .section-dark span:not(.section-label),
 .section-dark div,
 .section-dark a:not(.btn) {
-  color: var(--color-text-dark) !important;
+  color: #ffffff !important;
 }
 
 .section-light {
@@ -376,7 +376,7 @@ p {
 .section-light span:not(.section-label),
 .section-light div,
 .section-light a:not(.btn) {
-  color: var(--color-text-light) !important;
+  color: #1a1a1a !important;
 }
 
 .section-dark .section-subtitle {
