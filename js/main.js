@@ -10,6 +10,16 @@ if (document.readyState === 'loading') {
 }
 
 function init() {
+  // Preloader ausblenden
+  const preloader = document.getElementById('preloader');
+  if (preloader) {
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        preloader.classList.add('hidden');
+      }, 800);
+    });
+  }
+  
   // Scroll Reveal Animations
   const revealElements = document.querySelectorAll('.reveal');
   const revealLeftElements = document.querySelectorAll('.reveal-left');
@@ -42,15 +52,69 @@ function init() {
     });
   }
 
-  // Mobile Menu Toggle
+  // Mobile Menu Toggle mit Accessibility
   const navToggle = document.querySelector('.nav-toggle');
   const navLinks = document.querySelector('.nav-links');
+  const navLinkItems = navLinks ? navLinks.querySelectorAll('a') : [];
   
   if (navToggle && navLinks) {
+    let lastFocusedElement = null;
+    
+    function openMobileMenu() {
+      navLinks.classList.add('active');
+      navToggle.setAttribute('aria-expanded', 'true');
+      navToggle.setAttribute('aria-label', 'Menü schließen');
+      lastFocusedElement = document.activeElement;
+      if (navLinkItems.length > 0) {
+        navLinkItems[0].focus();
+      }
+      document.addEventListener('keydown', handleMobileKeyDown);
+      document.addEventListener('click', handleClickOutside);
+    }
+    
+    function closeMobileMenu() {
+      navLinks.classList.remove('active');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.setAttribute('aria-label', 'Menü öffnen');
+      if (lastFocusedElement) {
+        lastFocusedElement.focus();
+      }
+      document.removeEventListener('keydown', handleMobileKeyDown);
+      document.removeEventListener('click', handleClickOutside);
+    }
+    
+    function handleMobileKeyDown(e) {
+      if (e.key === 'Escape') {
+        closeMobileMenu();
+        return;
+      }
+      
+      if (e.key === 'Tab' && navLinks.classList.contains('active')) {
+        const firstLink = navLinkItems[0];
+        const lastLink = navLinkItems[navLinkItems.length - 1];
+        
+        if (e.shiftKey && document.activeElement === firstLink) {
+          e.preventDefault();
+          lastLink.focus();
+        } else if (!e.shiftKey && document.activeElement === lastLink) {
+          e.preventDefault();
+          firstLink.focus();
+        }
+      }
+    }
+    
+    function handleClickOutside(e) {
+      if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
+        closeMobileMenu();
+      }
+    }
+    
     navToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      navToggle.setAttribute('aria-expanded', 
-        navLinks.classList.contains('active'));
+      if (navLinks.classList.contains('active')) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
     });
   }
 
