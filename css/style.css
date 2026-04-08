@@ -355,9 +355,10 @@ p {
 .section-dark h5,
 .section-dark h6,
 .section-dark p,
-.section-dark span,
-.section-dark div {
-  color: var(--color-text-dark);
+.section-dark span:not(.section-label),
+.section-dark div,
+.section-dark a:not(.btn) {
+  color: var(--color-text-dark) !important;
 }
 
 .section-light {
@@ -372,9 +373,18 @@ p {
 .section-light h5,
 .section-light h6,
 .section-light p,
-.section-light span,
-.section-light div {
-  color: var(--color-text-light);
+.section-light span:not(.section-label),
+.section-light div,
+.section-light a:not(.btn) {
+  color: var(--color-text-light) !important;
+}
+
+.section-dark .section-subtitle {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.section-light .section-subtitle {
+  color: rgba(26, 26, 26, 0.6) !important;
 }
 
 .section-container {
