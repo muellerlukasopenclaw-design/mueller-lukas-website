@@ -110,8 +110,8 @@ body {
   font-family: var(--font-primary);
   font-size: var(--font-size-base);
   line-height: 1.6;
-  color: var(--color-text-light);
-  background: var(--color-bg-light);
+  color: #1a1a1a !important;
+  background: #fafafa;
   overflow-x: hidden;
 }
 
@@ -161,7 +161,7 @@ p {
 .nav-logo {
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-bold);
-  color: var(--color-text-dark);
+  color: #ffffff !important;
   text-decoration: none;
   letter-spacing: -0.02em;
 }
@@ -173,7 +173,7 @@ p {
 }
 
 .nav-links a {
-  color: var(--color-text-dark-muted);
+  color: #ffffff !important;
   text-decoration: none;
   font-weight: var(--font-weight-medium);
   font-size: var(--font-size-sm);
