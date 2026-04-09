@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://müller-lukas.de/sitemap.xml
+
+# Disallow sensitive paths (if any added later)
+Disallow: /private/
