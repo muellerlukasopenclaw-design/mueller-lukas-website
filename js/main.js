@@ -1,8 +1,10 @@
-Lukas Müller - Personal Website JS
-Scroll Animations, Smooth Interactions, Modern Effects
-No external dependencies
+/*
+ * Lukas Müller - Personal Website JS
+ * Scroll Animations, Smooth Interactions, Modern Effects
+ * No external dependencies
+ */
 
-Initialize when DOM is ready
+// Initialize when DOM is ready
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', init);
 } else {
