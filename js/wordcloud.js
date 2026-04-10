@@ -140,137 +140,158 @@ class WordCloud {
 
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
+  // Detect theme and set colors
+  const isDarkMode = document.body.getAttribute('data-theme') === 'dark' || 
+                     (!document.body.getAttribute('data-theme') && 
+                      window.matchMedia('(prefers-color-scheme: dark)').matches);
+  
+  // Color palette based on theme
+  const colors = isDarkMode ? {
+    primary: 'rgba(0, 212, 255, 0.95)',
+    secondary: 'rgba(0, 220, 255, 0.9)',
+    tertiary: 'rgba(0, 215, 255, 0.85)',
+    quaternary: 'rgba(0, 212, 255, 0.8)',
+    light: 'rgba(0, 200, 255, 0.75)'
+  } : {
+    // Light mode: darker navy/cyan for better contrast
+    primary: 'rgba(0, 100, 150, 0.95)',
+    secondary: 'rgba(0, 120, 160, 0.9)',
+    tertiary: 'rgba(0, 110, 150, 0.85)',
+    quaternary: 'rgba(0, 100, 140, 0.8)',
+    light: 'rgba(0, 90, 130, 0.75)'
+  };
+  
   const techWords = [
     // Core Programming (PHP focus)
-    { text: 'PHP', size: 30, weight: 1.8, color: 'rgba(0, 230, 255, 0.95)' },
-    { text: 'JavaScript', size: 26, weight: 1.5, color: 'rgba(0, 220, 255, 0.9)' },
-    { text: 'Python', size: 22, weight: 1.3, color: 'rgba(0, 212, 255, 0.85)' },
-    { text: 'Bash', size: 18, weight: 1.2, color: 'rgba(0, 212, 255, 0.8)' },
-    { text: 'PowerShell', size: 18, weight: 1.15, color: 'rgba(0, 212, 255, 0.8)' },
-    { text: 'SQL', size: 22, weight: 1.3, color: 'rgba(0, 212, 255, 0.85)' },
-    { text: 'JSON', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'XML', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'HTML', size: 20, weight: 1.25, color: 'rgba(0, 212, 255, 0.8)' },
-    { text: 'CSS', size: 19, weight: 1.2, color: 'rgba(0, 212, 255, 0.8)' },
+    { text: 'PHP', size: 30, weight: 1.8, color: colors.primary },
+    { text: 'JavaScript', size: 26, weight: 1.5, color: colors.secondary },
+    { text: 'Python', size: 22, weight: 1.3, color: colors.tertiary },
+    { text: 'Bash', size: 18, weight: 1.2, color: colors.quaternary },
+    { text: 'PowerShell', size: 18, weight: 1.15, color: colors.quaternary },
+    { text: 'SQL', size: 22, weight: 1.3, color: colors.tertiary },
+    { text: 'JSON', size: 17, weight: 1.1, color: colors.light },
+    { text: 'XML', size: 17, weight: 1.1, color: colors.light },
+    { text: 'HTML', size: 20, weight: 1.25, color: colors.quaternary },
+    { text: 'CSS', size: 19, weight: 1.2, color: colors.quaternary },
     
     // DevOps & Containers
-    { text: 'DevOps', size: 28, weight: 1.7, color: 'rgba(0, 235, 255, 0.95)' },
-    { text: 'Docker', size: 25, weight: 1.5, color: 'rgba(0, 220, 255, 0.9)' },
-    { text: 'Kubernetes', size: 23, weight: 1.4, color: 'rgba(0, 215, 255, 0.85)' },
-    { text: 'CI/CD', size: 24, weight: 1.45, color: 'rgba(0, 220, 255, 0.9)' },
-    { text: 'GitLab', size: 21, weight: 1.3, color: 'rgba(0, 212, 255, 0.85)' },
-    { text: 'GitHub', size: 20, weight: 1.25, color: 'rgba(0, 212, 255, 0.8)' },
-    { text: 'Jenkins', size: 19, weight: 1.2, color: 'rgba(0, 212, 255, 0.8)' },
-    { text: 'Git', size: 22, weight: 1.35, color: 'rgba(0, 212, 255, 0.85)' },
+    { text: 'DevOps', size: 28, weight: 1.7, color: 'rgba(0, 180, 220, 0.95)' },
+    { text: 'Docker', size: 25, weight: 1.5, color: colors.secondary },
+    { text: 'Kubernetes', size: 23, weight: 1.4, color: colors.tertiary },
+    { text: 'CI/CD', size: 24, weight: 1.45, color: colors.secondary },
+    { text: 'GitLab', size: 21, weight: 1.3, color: colors.tertiary },
+    { text: 'GitHub', size: 20, weight: 1.25, color: colors.quaternary },
+    { text: 'Jenkins', size: 19, weight: 1.2, color: colors.quaternary },
+    { text: 'Git', size: 22, weight: 1.35, color: colors.tertiary },
     
     // Cloud Platforms
-    { text: 'Cloud', size: 25, weight: 1.5, color: 'rgba(0, 225, 255, 0.9)' },
-    { text: 'AWS', size: 22, weight: 1.35, color: 'rgba(0, 215, 255, 0.85)' },
-    { text: 'Azure', size: 21, weight: 1.3, color: 'rgba(0, 212, 255, 0.85)' },
-    { text: 'IaC', size: 20, weight: 1.25, color: 'rgba(0, 212, 255, 0.8)' },
-    { text: 'Terraform', size: 20, weight: 1.25, color: 'rgba(0, 212, 255, 0.8)' },
-    { text: 'Ansible', size: 20, weight: 1.25, color: 'rgba(0, 212, 255, 0.8)' },
+    { text: 'Cloud', size: 25, weight: 1.5, color: colors.secondary },
+    { text: 'AWS', size: 22, weight: 1.35, color: colors.tertiary },
+    { text: 'Azure', size: 21, weight: 1.3, color: colors.tertiary },
+    { text: 'IaC', size: 20, weight: 1.25, color: colors.quaternary },
+    { text: 'Terraform', size: 20, weight: 1.25, color: colors.quaternary },
+    { text: 'Ansible', size: 20, weight: 1.25, color: colors.quaternary },
     
     // Databases
-    { text: 'MySQL', size: 21, weight: 1.3, color: 'rgba(0, 212, 255, 0.85)' },
-    { text: 'PostgreSQL', size: 20, weight: 1.25, color: 'rgba(0, 212, 255, 0.8)' },
-    { text: 'Redis', size: 18, weight: 1.15, color: 'rgba(0, 212, 255, 0.8)' },
-    { text: 'Elasticsearch', size: 18, weight: 1.15, color: 'rgba(0, 200, 255, 0.75)' },
+    { text: 'MySQL', size: 21, weight: 1.3, color: colors.tertiary },
+    { text: 'PostgreSQL', size: 20, weight: 1.25, color: colors.quaternary },
+    { text: 'Redis', size: 18, weight: 1.15, color: colors.quaternary },
+    { text: 'Elasticsearch', size: 18, weight: 1.15, color: colors.light },
     
     // Monitoring & Observability
-    { text: 'Monitoring', size: 22, weight: 1.35, color: 'rgba(0, 212, 255, 0.85)' },
-    { text: 'Grafana', size: 20, weight: 1.25, color: 'rgba(0, 212, 255, 0.8)' },
-    { text: 'Prometheus', size: 19, weight: 1.2, color: 'rgba(0, 212, 255, 0.8)' },
-    { text: 'ELK Stack', size: 18, weight: 1.15, color: 'rgba(0, 200, 255, 0.75)' },
+    { text: 'Monitoring', size: 22, weight: 1.35, color: colors.tertiary },
+    { text: 'Grafana', size: 20, weight: 1.25, color: colors.quaternary },
+    { text: 'Prometheus', size: 19, weight: 1.2, color: colors.quaternary },
+    { text: 'ELK Stack', size: 18, weight: 1.15, color: colors.light },
     
     // Security
-    { text: 'Security', size: 24, weight: 1.45, color: 'rgba(0, 220, 255, 0.9)' },
-    { text: 'ISO 27001', size: 19, weight: 1.2, color: 'rgba(0, 212, 255, 0.8)' },
-    { text: 'Firewall', size: 18, weight: 1.15, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'VPN', size: 18, weight: 1.15, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'SSL/TLS', size: 18, weight: 1.15, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'Compliance', size: 18, weight: 1.15, color: 'rgba(0, 200, 255, 0.75)' },
+    { text: 'Security', size: 24, weight: 1.45, color: colors.secondary },
+    { text: 'ISO 27001', size: 19, weight: 1.2, color: colors.quaternary },
+    { text: 'Firewall', size: 18, weight: 1.15, color: colors.light },
+    { text: 'VPN', size: 18, weight: 1.15, color: colors.light },
+    { text: 'SSL/TLS', size: 18, weight: 1.15, color: colors.light },
+    { text: 'Compliance', size: 18, weight: 1.15, color: colors.light },
     
     // Methodologies & Frameworks
-    { text: 'Agile', size: 23, weight: 1.4, color: 'rgba(0, 215, 255, 0.85)' },
-    { text: 'Scrum', size: 20, weight: 1.25, color: 'rgba(0, 212, 255, 0.8)' },
-    { text: 'Kanban', size: 19, weight: 1.2, color: 'rgba(0, 212, 255, 0.8)' },
-    { text: 'ITIL', size: 19, weight: 1.2, color: 'rgba(0, 212, 255, 0.8)' },
-    { text: 'DevSecOps', size: 19, weight: 1.2, color: 'rgba(0, 212, 255, 0.8)' },
+    { text: 'Agile', size: 23, weight: 1.4, color: colors.tertiary },
+    { text: 'Scrum', size: 20, weight: 1.25, color: colors.quaternary },
+    { text: 'Kanban', size: 19, weight: 1.2, color: colors.quaternary },
+    { text: 'ITIL', size: 19, weight: 1.2, color: colors.quaternary },
+    { text: 'DevSecOps', size: 19, weight: 1.2, color: colors.quaternary },
     
     // Project Management Tools
-    { text: 'Jira', size: 20, weight: 1.25, color: 'rgba(0, 212, 255, 0.8)' },
-    { text: 'Confluence', size: 18, weight: 1.15, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'ServiceNow', size: 18, weight: 1.15, color: 'rgba(0, 200, 255, 0.75)' },
+    { text: 'Jira', size: 20, weight: 1.25, color: colors.quaternary },
+    { text: 'Confluence', size: 18, weight: 1.15, color: colors.light },
+    { text: 'ServiceNow', size: 18, weight: 1.15, color: colors.light },
     
     // Web Servers & Infrastructure
-    { text: 'Nginx', size: 20, weight: 1.25, color: 'rgba(0, 212, 255, 0.8)' },
-    { text: 'Apache', size: 19, weight: 1.2, color: 'rgba(0, 212, 255, 0.8)' },
-    { text: 'Load Balancing', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
+    { text: 'Nginx', size: 20, weight: 1.25, color: colors.quaternary },
+    { text: 'Apache', size: 19, weight: 1.2, color: colors.quaternary },
+    { text: 'Load Balancing', size: 17, weight: 1.1, color: colors.light },
     
     // Operating Systems
-    { text: 'Linux', size: 25, weight: 1.5, color: 'rgba(0, 220, 255, 0.9)' },
-    { text: 'Ubuntu', size: 19, weight: 1.2, color: 'rgba(0, 212, 255, 0.8)' },
-    { text: 'Debian', size: 18, weight: 1.15, color: 'rgba(0, 212, 255, 0.8)' },
-    { text: 'Windows Server', size: 18, weight: 1.15, color: 'rgba(0, 200, 255, 0.75)' },
+    { text: 'Linux', size: 25, weight: 1.5, color: colors.secondary },
+    { text: 'Ubuntu', size: 19, weight: 1.2, color: colors.quaternary },
+    { text: 'Debian', size: 18, weight: 1.15, color: colors.quaternary },
+    { text: 'Windows Server', size: 18, weight: 1.15, color: colors.light },
     
     // APIs & Integration
-    { text: 'REST API', size: 21, weight: 1.3, color: 'rgba(0, 212, 255, 0.85)' },
-    { text: 'Microservices', size: 20, weight: 1.25, color: 'rgba(0, 212, 255, 0.8)' },
-    { text: 'API', size: 19, weight: 1.2, color: 'rgba(0, 212, 255, 0.8)' },
+    { text: 'REST API', size: 21, weight: 1.3, color: colors.tertiary },
+    { text: 'Microservices', size: 20, weight: 1.25, color: colors.quaternary },
+    { text: 'API', size: 19, weight: 1.2, color: colors.quaternary },
     
     // Architecture & Design
-    { text: 'Architecture', size: 22, weight: 1.35, color: 'rgba(0, 212, 255, 0.85)' },
-    { text: 'Infrastructure', size: 20, weight: 1.25, color: 'rgba(0, 212, 255, 0.8)' },
-    { text: 'Scalability', size: 18, weight: 1.15, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'High Availability', size: 18, weight: 1.15, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'Disaster Recovery', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'Backup', size: 18, weight: 1.15, color: 'rgba(0, 200, 255, 0.75)' },
+    { text: 'Architecture', size: 22, weight: 1.35, color: colors.tertiary },
+    { text: 'Infrastructure', size: 20, weight: 1.25, color: colors.quaternary },
+    { text: 'Scalability', size: 18, weight: 1.15, color: colors.light },
+    { text: 'High Availability', size: 18, weight: 1.15, color: colors.light },
+    { text: 'Disaster Recovery', size: 17, weight: 1.1, color: colors.light },
+    { text: 'Backup', size: 18, weight: 1.15, color: colors.light },
     
     // Leadership & Soft Skills
-    { text: 'Leadership', size: 26, weight: 1.55, color: 'rgba(0, 230, 255, 0.9)' },
-    { text: 'Team Management', size: 20, weight: 1.25, color: 'rgba(0, 212, 255, 0.8)' },
-    { text: 'Strategy', size: 23, weight: 1.4, color: 'rgba(0, 220, 255, 0.9)' },
-    { text: 'IT Strategy', size: 21, weight: 1.3, color: 'rgba(0, 215, 255, 0.85)' },
-    { text: 'Governance', size: 19, weight: 1.2, color: 'rgba(0, 212, 255, 0.8)' },
-    { text: 'Budgeting', size: 18, weight: 1.15, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'Innovation', size: 20, weight: 1.25, color: 'rgba(0, 212, 255, 0.8)' },
-    { text: 'Digital Transformation', size: 19, weight: 1.2, color: 'rgba(0, 212, 255, 0.8)' },
+    { text: 'Leadership', size: 26, weight: 1.55, color: colors.primary },
+    { text: 'Team Management', size: 20, weight: 1.25, color: colors.quaternary },
+    { text: 'Strategy', size: 23, weight: 1.4, color: colors.secondary },
+    { text: 'IT Strategy', size: 21, weight: 1.3, color: colors.tertiary },
+    { text: 'Governance', size: 19, weight: 1.2, color: colors.quaternary },
+    { text: 'Budgeting', size: 18, weight: 1.15, color: colors.light },
+    { text: 'Innovation', size: 20, weight: 1.25, color: colors.quaternary },
+    { text: 'Digital Transformation', size: 19, weight: 1.2, color: colors.quaternary },
     
     // Additional Skills
-    { text: 'Automation', size: 22, weight: 1.35, color: 'rgba(0, 212, 255, 0.85)' },
-    { text: 'Scripting', size: 19, weight: 1.2, color: 'rgba(0, 212, 255, 0.8)' },
-    { text: 'Configuration', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'Optimization', size: 18, weight: 1.15, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'Performance', size: 18, weight: 1.15, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'Troubleshooting', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
+    { text: 'Automation', size: 22, weight: 1.35, color: colors.tertiary },
+    { text: 'Scripting', size: 19, weight: 1.2, color: colors.quaternary },
+    { text: 'Configuration', size: 17, weight: 1.1, color: colors.light },
+    { text: 'Optimization', size: 18, weight: 1.15, color: colors.light },
+    { text: 'Performance', size: 18, weight: 1.15, color: colors.light },
+    { text: 'Troubleshooting', size: 17, weight: 1.1, color: colors.light },
     
     // Network & Communication
-    { text: 'TCP/IP', size: 18, weight: 1.15, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'DNS', size: 18, weight: 1.15, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'LDAP', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'SSO', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'Active Directory', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
+    { text: 'TCP/IP', size: 18, weight: 1.15, color: colors.light },
+    { text: 'DNS', size: 18, weight: 1.15, color: colors.light },
+    { text: 'LDAP', size: 17, weight: 1.1, color: colors.light },
+    { text: 'SSO', size: 17, weight: 1.1, color: colors.light },
+    { text: 'Active Directory', size: 17, weight: 1.1, color: colors.light },
     
     // Version Control & Collaboration
-    { text: 'Version Control', size: 19, weight: 1.2, color: 'rgba(0, 212, 255, 0.8)' },
-    { text: 'Code Review', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'Documentation', size: 18, weight: 1.15, color: 'rgba(0, 200, 255, 0.75)' },
+    { text: 'Version Control', size: 19, weight: 1.2, color: colors.quaternary },
+    { text: 'Code Review', size: 17, weight: 1.1, color: colors.light },
+    { text: 'Documentation', size: 18, weight: 1.15, color: colors.light },
     
     // Virtualization
-    { text: 'VMware', size: 18, weight: 1.15, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'vSphere', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'Proxmox', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'Hyper-V', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
+    { text: 'VMware', size: 18, weight: 1.15, color: colors.light },
+    { text: 'vSphere', size: 17, weight: 1.1, color: colors.light },
+    { text: 'Proxmox', size: 17, weight: 1.1, color: colors.light },
+    { text: 'Hyper-V', size: 17, weight: 1.1, color: colors.light },
     
     // Testing & QA
-    { text: 'Testing', size: 18, weight: 1.15, color: 'rgba(0, 200, 255, 0.75)' },
+    { text: 'Testing', size: 18, weight: 1.15, color: colors.light },
     
     // Business & Management
-    { text: 'Project Management', size: 20, weight: 1.25, color: 'rgba(0, 212, 255, 0.8)' },
-    { text: 'Stakeholder', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'Vendor Management', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'Risk Management', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' }
+    { text: 'Project Management', size: 20, weight: 1.25, color: colors.quaternary },
+    { text: 'Stakeholder', size: 17, weight: 1.1, color: colors.light },
+    { text: 'Vendor Management', size: 17, weight: 1.1, color: colors.light },
+    { text: 'Risk Management', size: 17, weight: 1.1, color: colors.light }
   ];
   
   // Initialize word cloud if canvas exists
