@@ -12,8 +12,6 @@
   --color-bg-elevated: #ffffff;
   --color-text: #1a1a1a;
   --color-text-muted: rgba(26, 26, 26, 0.6);
-  --color-bg-dark-elevated: #141414;
-  
   /* Accent Colors */
   --color-accent: #00d4ff;
   --color-accent-dark: #0099cc;
@@ -153,7 +151,7 @@ html {
   top: -40px;
   left: 0;
   background: var(--color-accent);
-  color: var(--color-bg-dark);
+  color: var(--color-bg);
   padding: 8px;
   text-decoration: none;
   z-index: 10000;
@@ -408,7 +406,7 @@ p {
 
 .btn-secondary {
   background: transparent;
-  color: var(--color-text-dark);
+  color: var(--color-text);
   border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
@@ -530,7 +528,7 @@ p {
 
 .section-subtitle {
   font-size: var(--font-size-lg);
-  color: var(--color-text-light-muted);
+  color: var(--color-text-muted);
   max-width: 600px;
   margin: 0 auto;
 }
@@ -647,7 +645,7 @@ p {
 
 .highlight-label {
   font-size: var(--font-size-sm);
-  color: var(--color-text-light-muted);
+  color: var(--color-text-muted);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -686,7 +684,7 @@ p {
 }
 
 .timeline-content {
-  background: var(--color-bg-light-elevated);
+  background: var(--color-bg-elevated);
   padding: var(--space-6);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-sm);
@@ -755,7 +753,7 @@ p {
 }
 
 .skill-category {
-  background: var(--color-bg-light-elevated);
+  background: var(--color-bg-elevated);
   padding: var(--space-8);
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-sm);
@@ -764,7 +762,7 @@ p {
 .skill-category-title {
   font-size: var(--font-size-xl);
   margin-bottom: var(--space-6);
-  color: var(--color-text-light);
+  color: var(--color-text);
   display: flex;
   align-items: center;
   gap: var(--space-3);
@@ -785,13 +783,13 @@ p {
 }
 
 .skill-item {
-  background: var(--color-bg-light);
+  background: var(--color-bg);
   padding: var(--space-3) var(--space-4);
   border-radius: 9999px;
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
-  color: var(--color-text-light);
-  border: 1px solid var(--color-bg-dark);
+  color: var(--color-text);
+  border: 1px solid var(--color-bg);
   transition: var(--transition-fast);
 }
 
@@ -808,7 +806,7 @@ p {
 }
 
 .project-card {
-  background: var(--color-bg-light-elevated);
+  background: var(--color-bg-elevated);
   border-radius: var(--border-radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
@@ -822,7 +820,7 @@ p {
 
 .project-icon {
   height: 120px;
-  background: var(--color-bg-dark);
+  background: var(--color-bg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -837,19 +835,19 @@ p {
 .project-title {
   font-size: var(--font-size-xl);
   margin-bottom: var(--space-2);
-  color: var(--color-text-light);
+  color: var(--color-text);
 }
 
 .project-description {
   font-size: var(--font-size-sm);
-  color: var(--color-text-light-muted);
+  color: var(--color-text-muted);
   line-height: 1.6;
 }
 
 /* === CONTACT === */
 .contact {
-  background: var(--color-bg-dark);
-  color: var(--color-text-dark);
+  background: var(--color-bg);
+  color: var(--color-text);
   text-align: center;
 }
 
@@ -860,7 +858,7 @@ p {
 
 .contact-text {
   font-size: var(--font-size-lg);
-  color: var(--color-text-dark-muted);
+  color: var(--color-text-muted);
   max-width: 600px;
   margin: 0 auto var(--space-8);
 }
@@ -878,7 +876,7 @@ p {
   gap: var(--space-2);
   padding: var(--space-4) var(--space-6);
   background: rgba(255, 255, 255, 0.1);
-  color: var(--color-text-dark);
+  color: var(--color-text);
   text-decoration: none;
   border-radius: var(--border-radius);
   font-weight: var(--font-weight-medium);
@@ -887,13 +885,13 @@ p {
 
 .contact-link:hover {
   background: var(--color-accent);
-  color: var(--color-bg-dark);
+  color: var(--color-bg);
 }
 
 /* === FOOTER === */
 .footer {
-  background: var(--color-bg-dark);
-  color: var(--color-text-dark-muted);
+  background: var(--color-bg);
+  color: var(--color-text-muted);
   padding: var(--space-8) 0;
   text-align: center;
   font-size: var(--font-size-sm);
@@ -981,7 +979,7 @@ p {
     top: 100%;
     left: 0;
     right: 0;
-    background: var(--color-bg-dark);
+    background: var(--color-bg);
     flex-direction: column;
     padding: var(--space-6);
     gap: var(--space-4);
@@ -1040,7 +1038,7 @@ p {
   left: 0;
   right: 0;
   bottom: 0;
-  background: var(--color-bg-dark);
+  background: var(--color-bg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1071,7 +1069,7 @@ p {
 
 .preloader-text {
   font-size: var(--font-size-sm);
-  color: var(--color-text-dark-muted);
+  color: var(--color-text-muted);
   text-transform: uppercase;
   letter-spacing: 0.2em;
 }
