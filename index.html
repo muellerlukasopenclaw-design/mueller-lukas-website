@@ -53,11 +53,18 @@
     <div class="nav-container">
       <a href="#" class="nav-logo" aria-label="Lukas Müller - Zur Startseite">Lukas Müller</a>
       
-      <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <div class="nav-actions" style="display: flex; align-items: center; gap: var(--space-4);">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Dark Mode umschalten" title="Dark Mode umschalten">
+          <span class="theme-icon-light">☀️</span>
+          <span class="theme-icon-dark">🌙</span>
+        </button>
+        
+        <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
       
       <ul class="nav-links" id="nav-menu" role="menubar">
         <li role="none"><a href="#about" role="menuitem">Profil</a></li>
@@ -362,6 +369,45 @@
           window.location.href = 'mailto:' + user + '@' + domain;
         });
       }
+    })();
+  </script>
+  
+  <!-- Dark Mode Toggle -->
+  <script>
+    (function() {
+      const toggle = document.getElementById('theme-toggle');
+      const body = document.body;
+      
+      // Check for saved preference
+      const savedTheme = localStorage.getItem('theme');
+      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      
+      // Set initial theme
+      if (savedTheme) {
+        body.setAttribute('data-theme', savedTheme);
+      } else if (systemPrefersDark) {
+        body.setAttribute('data-theme', 'dark');
+      } else {
+        body.setAttribute('data-theme', 'light');
+      }
+      
+      // Toggle function
+      if (toggle) {
+        toggle.addEventListener('click', function() {
+          const currentTheme = body.getAttribute('data-theme');
+          const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+          
+          body.setAttribute('data-theme', newTheme);
+          localStorage.setItem('theme', newTheme);
+        });
+      }
+      
+      // Listen for system changes (only if no manual preference saved)
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+        if (!localStorage.getItem('theme')) {
+          body.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+        }
+      });
     })();
   </script>
 </body>
