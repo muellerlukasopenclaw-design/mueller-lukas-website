@@ -690,6 +690,23 @@ p {
   line-height: 1.7;
 }
 
+/* === TIMELINE DARK MODE FIXES === */
+.section-dark .timeline-content {
+  background: var(--color-bg-dark-elevated);
+}
+
+.section-dark .timeline-title {
+  color: var(--color-text-dark);
+}
+
+.section-dark .timeline-company {
+  color: var(--color-text-dark-muted);
+}
+
+.section-dark .timeline-description {
+  color: var(--color-text-dark-muted);
+}
+
 /* === SKILLS === */
 .skills-grid {
   display: grid;
