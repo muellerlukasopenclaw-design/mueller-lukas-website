@@ -205,7 +205,7 @@ p {
 }
 
 .nav.scrolled {
-  background: rgba(10, 10, 10, 0.9);
+  background: var(--color-bg-elevated);
   backdrop-filter: blur(10px);
   padding: var(--space-4) 0;
 }
@@ -222,7 +222,7 @@ p {
 .nav-logo {
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-bold);
-  color: var(--color-text-dark);
+  color: var(--color-text);
   text-decoration: none;
   letter-spacing: -0.02em;
   min-height: 44px;
@@ -243,7 +243,7 @@ p {
 }
 
 .nav-links a {
-  color: var(--color-text-dark);
+  color: var(--color-text);
   text-decoration: none;
   font-weight: var(--font-weight-medium);
   font-size: var(--font-size-sm);
@@ -275,7 +275,7 @@ p {
 }
 
 .nav-links a:hover {
-  color: var(--color-text-dark);
+  color: var(--color-text);
 }
 
 .nav-links a:hover::after {
@@ -295,7 +295,7 @@ p {
   display: block;
   width: 24px;
   height: 2px;
-  background: var(--color-text-dark);
+  background: var(--color-text);
   margin: 5px 0;
   transition: var(--transition-fast);
 }
@@ -307,7 +307,7 @@ p {
   align-items: center;
   justify-content: center;
   background: var(--gradient-hero);
-  color: var(--color-text-dark);
+  color: var(--color-text);
   position: relative;
   overflow: hidden;
 }
@@ -362,7 +362,7 @@ p {
 
 .hero-title {
   font-size: var(--font-size-2xl);
-  color: var(--color-text-dark-muted);
+  color: var(--color-text-muted);
   font-weight: var(--font-weight-light);
   margin-bottom: var(--space-8);
   opacity: 0;
@@ -398,7 +398,7 @@ p {
 
 .btn-primary {
   background: var(--gradient-accent);
-  color: var(--color-bg-dark);
+  color: #0a0a0a;
 }
 
 .btn-primary:hover {
