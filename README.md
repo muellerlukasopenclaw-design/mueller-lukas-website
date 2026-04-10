@@ -177,4 +177,4 @@ Statt umfangreicher persönlicher Daten wird ein **professionelles Kontaktkonzep
 
 **Erstellt mit ❤️ und Fokus auf Qualität statt Quantität.**
 
-© 2024 Lukas Müller
+© 2026 Lukas Müller
