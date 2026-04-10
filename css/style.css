@@ -440,8 +440,8 @@ p {
 }
 
 .section-dark {
-  background: var(--color-bg-dark);
-  color: var(--color-text-dark);
+  background: var(--color-bg);
+  color: var(--color-text);
 }
 
 .section-dark h1,
@@ -450,13 +450,13 @@ p {
 .section-dark h4,
 .section-dark h5,
 .section-dark h6 {
-  color: var(--color-text-dark);
+  color: var(--color-text);
 }
 
 .section-dark p,
 .section-dark span:not(.section-label),
 .section-dark div {
-  color: var(--color-text-dark);
+  color: var(--color-text);
 }
 
 .section-dark a:not(.btn) {
@@ -467,9 +467,13 @@ p {
   color: var(--color-accent-light);
 }
 
+.section-dark .section-subtitle {
+  color: var(--color-text-muted);
+}
+
 .section-light {
-  background: var(--color-bg-light);
-  color: var(--color-text-light);
+  background: var(--color-bg);
+  color: var(--color-text);
 }
 
 .section-light h1,
@@ -478,29 +482,25 @@ p {
 .section-light h4,
 .section-light h5,
 .section-light h6 {
-  color: var(--color-text-light);
+  color: var(--color-text);
 }
 
 .section-light p,
 .section-light span:not(.section-label),
 .section-light div {
-  color: var(--color-text-light);
+  color: var(--color-text);
 }
 
 .section-light a:not(.btn) {
-  color: var(--color-accent-dark);
-}
-
-.section-light a:not(.btn):hover {
   color: var(--color-accent);
 }
 
-.section-dark .section-subtitle {
-  color: var(--color-text-dark-muted);
+.section-light a:not(.btn):hover {
+  color: var(--color-accent-light);
 }
 
-.section-light .section-subtitle {
-  color: var(--color-text-light-muted);
+.section-subtitle {
+  color: var(--color-text-muted);
 }
 
 .section-container {
@@ -716,36 +716,27 @@ p {
 .timeline-title {
   font-size: var(--font-size-xl);
   margin-bottom: var(--space-2);
-  color: var(--color-text-light);
+  color: var(--color-text);
 }
 
 .timeline-company {
   font-size: var(--font-size-base);
-  color: var(--color-text-light-muted);
+  color: var(--color-text-muted);
   margin-bottom: var(--space-4);
 }
 
 .timeline-description {
   font-size: var(--font-size-sm);
-  color: var(--color-text-light-muted);
+  color: var(--color-text-muted);
   line-height: 1.7;
 }
 
-/* === TIMELINE DARK MODE FIXES === */
-.section-dark .timeline-content {
-  background: var(--color-bg-dark-elevated);
-}
-
-.section-dark .timeline-title {
-  color: var(--color-text-dark);
-}
-
-.section-dark .timeline-company {
-  color: var(--color-text-dark-muted);
-}
-
-.section-dark .timeline-description {
-  color: var(--color-text-dark-muted);
+.timeline-content {
+  background: var(--color-bg-elevated);
+  padding: var(--space-6);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  position: relative;
 }
 
 /* === SKILLS === */
