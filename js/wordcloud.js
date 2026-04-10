@@ -150,7 +150,6 @@ document.addEventListener('DOMContentLoaded', () => {
     { text: 'SQL', size: 22, weight: 1.3, color: 'rgba(0, 212, 255, 0.85)' },
     { text: 'JSON', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
     { text: 'XML', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'YAML', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
     { text: 'HTML', size: 20, weight: 1.25, color: 'rgba(0, 212, 255, 0.8)' },
     { text: 'CSS', size: 19, weight: 1.2, color: 'rgba(0, 212, 255, 0.8)' },
     
@@ -163,46 +162,33 @@ document.addEventListener('DOMContentLoaded', () => {
     { text: 'GitHub', size: 20, weight: 1.25, color: 'rgba(0, 212, 255, 0.8)' },
     { text: 'Jenkins', size: 19, weight: 1.2, color: 'rgba(0, 212, 255, 0.8)' },
     { text: 'Git', size: 22, weight: 1.35, color: 'rgba(0, 212, 255, 0.85)' },
-    { text: 'ArgoCD', size: 18, weight: 1.15, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'Helm', size: 18, weight: 1.15, color: 'rgba(0, 200, 255, 0.75)' },
     
     // Cloud Platforms
     { text: 'Cloud', size: 25, weight: 1.5, color: 'rgba(0, 225, 255, 0.9)' },
     { text: 'AWS', size: 22, weight: 1.35, color: 'rgba(0, 215, 255, 0.85)' },
     { text: 'Azure', size: 21, weight: 1.3, color: 'rgba(0, 212, 255, 0.85)' },
-    { text: 'GCP', size: 19, weight: 1.2, color: 'rgba(0, 212, 255, 0.8)' },
     { text: 'IaC', size: 20, weight: 1.25, color: 'rgba(0, 212, 255, 0.8)' },
     { text: 'Terraform', size: 20, weight: 1.25, color: 'rgba(0, 212, 255, 0.8)' },
     { text: 'Ansible', size: 20, weight: 1.25, color: 'rgba(0, 212, 255, 0.8)' },
-    { text: 'Pulumi', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
     
     // Databases
     { text: 'MySQL', size: 21, weight: 1.3, color: 'rgba(0, 212, 255, 0.85)' },
     { text: 'PostgreSQL', size: 20, weight: 1.25, color: 'rgba(0, 212, 255, 0.8)' },
-    { text: 'MariaDB', size: 19, weight: 1.2, color: 'rgba(0, 212, 255, 0.8)' },
     { text: 'Redis', size: 18, weight: 1.15, color: 'rgba(0, 212, 255, 0.8)' },
     { text: 'Elasticsearch', size: 18, weight: 1.15, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'MongoDB', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'NoSQL', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
     
     // Monitoring & Observability
     { text: 'Monitoring', size: 22, weight: 1.35, color: 'rgba(0, 212, 255, 0.85)' },
     { text: 'Grafana', size: 20, weight: 1.25, color: 'rgba(0, 212, 255, 0.8)' },
     { text: 'Prometheus', size: 19, weight: 1.2, color: 'rgba(0, 212, 255, 0.8)' },
     { text: 'ELK Stack', size: 18, weight: 1.15, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'Zabbix', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'Nagios', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'PagerDuty', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'Datadog', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
     
     // Security
     { text: 'Security', size: 24, weight: 1.45, color: 'rgba(0, 220, 255, 0.9)' },
     { text: 'ISO 27001', size: 19, weight: 1.2, color: 'rgba(0, 212, 255, 0.8)' },
-    { text: 'SIEM', size: 18, weight: 1.15, color: 'rgba(0, 212, 255, 0.8)' },
     { text: 'Firewall', size: 18, weight: 1.15, color: 'rgba(0, 200, 255, 0.75)' },
     { text: 'VPN', size: 18, weight: 1.15, color: 'rgba(0, 200, 255, 0.75)' },
     { text: 'SSL/TLS', size: 18, weight: 1.15, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'Penetration Testing', size: 16, weight: 1.0, color: 'rgba(0, 190, 255, 0.7)' },
     { text: 'Compliance', size: 18, weight: 1.15, color: 'rgba(0, 200, 255, 0.75)' },
     
     // Methodologies & Frameworks
@@ -211,38 +197,27 @@ document.addEventListener('DOMContentLoaded', () => {
     { text: 'Kanban', size: 19, weight: 1.2, color: 'rgba(0, 212, 255, 0.8)' },
     { text: 'ITIL', size: 19, weight: 1.2, color: 'rgba(0, 212, 255, 0.8)' },
     { text: 'DevSecOps', size: 19, weight: 1.2, color: 'rgba(0, 212, 255, 0.8)' },
-    { text: 'SRE', size: 18, weight: 1.15, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'FinOps', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
     
     // Project Management Tools
     { text: 'Jira', size: 20, weight: 1.25, color: 'rgba(0, 212, 255, 0.8)' },
     { text: 'Confluence', size: 18, weight: 1.15, color: 'rgba(0, 200, 255, 0.75)' },
     { text: 'ServiceNow', size: 18, weight: 1.15, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'MS Project', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
     
     // Web Servers & Infrastructure
     { text: 'Nginx', size: 20, weight: 1.25, color: 'rgba(0, 212, 255, 0.8)' },
     { text: 'Apache', size: 19, weight: 1.2, color: 'rgba(0, 212, 255, 0.8)' },
-    { text: 'HAProxy', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'Traefik', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
     { text: 'Load Balancing', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'CDN', size: 16, weight: 1.0, color: 'rgba(0, 190, 255, 0.7)' },
     
     // Operating Systems
     { text: 'Linux', size: 25, weight: 1.5, color: 'rgba(0, 220, 255, 0.9)' },
     { text: 'Ubuntu', size: 19, weight: 1.2, color: 'rgba(0, 212, 255, 0.8)' },
     { text: 'Debian', size: 18, weight: 1.15, color: 'rgba(0, 212, 255, 0.8)' },
-    { text: 'CentOS', size: 18, weight: 1.15, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'RHEL', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
     { text: 'Windows Server', size: 18, weight: 1.15, color: 'rgba(0, 200, 255, 0.75)' },
     
     // APIs & Integration
     { text: 'REST API', size: 21, weight: 1.3, color: 'rgba(0, 212, 255, 0.85)' },
-    { text: 'GraphQL', size: 18, weight: 1.15, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'gRPC', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'SOAP', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
     { text: 'Microservices', size: 20, weight: 1.25, color: 'rgba(0, 212, 255, 0.8)' },
-    { text: 'Webhooks', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
+    { text: 'API', size: 19, weight: 1.2, color: 'rgba(0, 212, 255, 0.8)' },
     
     // Architecture & Design
     { text: 'Architecture', size: 22, weight: 1.35, color: 'rgba(0, 212, 255, 0.85)' },
@@ -273,7 +248,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Network & Communication
     { text: 'TCP/IP', size: 18, weight: 1.15, color: 'rgba(0, 200, 255, 0.75)' },
     { text: 'DNS', size: 18, weight: 1.15, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'DHCP', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
     { text: 'LDAP', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
     { text: 'SSO', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
     { text: 'Active Directory', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
@@ -287,13 +261,10 @@ document.addEventListener('DOMContentLoaded', () => {
     { text: 'VMware', size: 18, weight: 1.15, color: 'rgba(0, 200, 255, 0.75)' },
     { text: 'vSphere', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
     { text: 'Proxmox', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'VirtualBox', size: 16, weight: 1.0, color: 'rgba(0, 190, 255, 0.7)' },
     { text: 'Hyper-V', size: 17, weight: 1.1, color: 'rgba(0, 200, 255, 0.75)' },
     
     // Testing & QA
     { text: 'Testing', size: 18, weight: 1.15, color: 'rgba(0, 200, 255, 0.75)' },
-    { text: 'Unit Testing', size: 16, weight: 1.0, color: 'rgba(0, 190, 255, 0.7)' },
-    { text: 'Integration Testing', size: 16, weight: 1.0, color: 'rgba(0, 190, 255, 0.7)' },
     
     // Business & Management
     { text: 'Project Management', size: 20, weight: 1.25, color: 'rgba(0, 212, 255, 0.8)' },
