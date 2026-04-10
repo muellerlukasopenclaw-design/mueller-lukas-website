@@ -407,7 +407,7 @@ p {
 .btn-secondary {
   background: transparent;
   color: var(--color-text);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid var(--color-text-muted);
 }
 
 .btn-secondary:hover {
