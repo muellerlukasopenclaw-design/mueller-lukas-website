@@ -166,6 +166,19 @@ Statt umfangreicher persönlicher Daten wird ein **professionelles Kontaktkonzep
 
 ## 📝 Changelog
 
+### v1.2 (April 2026)
+- ✅ **Dark Mode Toggle** – Umschaltbar mit System-Preference-Erkennung
+- ✅ **Impressum & Datenschutz** – Rechtlich vollständig
+- ✅ **Word-Cloud erweitert** – 115+ Tech-Keywords
+- ✅ **Social Links korrigiert** – GitHub & LinkedIn aktualisiert
+- ✅ **E-Mail mit Spam-Schutz** – JS-Obfuscation + Gmail-Filter-Tag
+- ✅ **Bugfixes** – Timeline-Farben, CSP, Service Worker Pfad
+- ✅ **Copyright 2026** – Aktuelles Jahr
+
+### v1.1 (April 2026)
+- ✅ GitHub Pages Demo-Link hinzugefügt
+- ✅ Bugfix: JavaScript Syntaxfehler behoben
+
 ### v1.0 (April 2024)
 - ✅ Initialer Launch
 - ✅ One-Pager mit 6 Abschnitten
