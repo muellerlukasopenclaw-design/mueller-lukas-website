@@ -587,23 +587,23 @@ p {
 .about-image-placeholder {
   width: 100%;
   aspect-ratio: 1;
-  background: var(--color-bg-dark-elevated);
+  background: var(--color-bg-elevated);
   border-radius: var(--border-radius-lg);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: var(--font-size-6xl);
-  color: var(--color-text-dark-muted);
+  color: var(--color-text-muted);
 }
 
 .about-text h3 {
   font-size: var(--font-size-2xl);
   margin-bottom: var(--space-4);
-  color: var(--color-text-light);
+  color: var(--color-text);
 }
 
 .about-text p {
-  color: var(--color-text-light-muted);
+  color: var(--color-text-muted);
   margin-bottom: var(--space-6);
   line-height: 1.8;
 }
@@ -618,7 +618,7 @@ p {
 .highlight-item {
   text-align: center;
   padding: var(--space-6);
-  background: var(--color-bg-light-elevated);
+  background: var(--color-bg-elevated);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-sm);
   transition: var(--transition-base);
@@ -635,6 +635,13 @@ p {
   color: var(--color-accent);
   display: block;
   margin-bottom: var(--space-2);
+}
+
+.highlight-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .highlight-label {
