@@ -54,7 +54,7 @@
           
           <p style="margin-bottom: var(--space-4);">
             <strong>Kontakt:</strong><br>
-            E-Mail: contact@mueller-lukas.de
+            E-Mail: <span id="impressum-email"></span>
           </p>
 
           <h2 style="font-size: var(--font-size-xl); margin: var(--space-8) 0 var(--space-4);">Haftungsausschluss</h2>
@@ -95,5 +95,20 @@
   </footer>
 
   <script src="js/main.js"></script>
+  
+  <!-- Email obfuscation for Impressum -->
+  <script>
+    (function() {
+      var user = 'mueller.lukas1809+website';
+      var domain = 'gmail.com';
+      var emailSpan = document.getElementById('impressum-email');
+      if (emailSpan) {
+        var emailLink = document.createElement('a');
+        emailLink.href = 'mailto:' + user + '@' + domain;
+        emailLink.textContent = user + '@' + domain;
+        emailSpan.appendChild(emailLink);
+      }
+    })();
+  </script>
 </body>
 </html>

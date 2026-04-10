@@ -305,7 +305,7 @@
           
           <div class="contact-links">
             <!-- Privacy: Only professional email, no phone, no address -->
-            <a href="mailto:contact@mueller-lukas.de" class="contact-link" aria-label="E-Mail senden">
+            <a href="#" id="email-link" class="contact-link" aria-label="E-Mail senden">
               <span>✉️</span> E-Mail
             </a>
             <a href="https://linkedin.com/in/lukas-mueller" class="contact-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profil">
@@ -347,6 +347,22 @@
           });
       });
     }
+  </script>
+  
+  <!-- Email obfuscation - Spam protection -->
+  <script>
+    (function() {
+      var user = 'mueller.lukas1809+website';
+      var domain = 'gmail.com';
+      var emailLink = document.getElementById('email-link');
+      if (emailLink) {
+        emailLink.href = 'mailto:' + user + '@' + domain;
+        emailLink.addEventListener('click', function(e) {
+          e.preventDefault();
+          window.location.href = 'mailto:' + user + '@' + domain;
+        });
+      }
+    })();
   </script>
 </body>
 </html>
